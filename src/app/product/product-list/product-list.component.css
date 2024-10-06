@@ -1,0 +1,14 @@
+.product-card {
+  max-width: 300px;
+}
+mat-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+mat-card {
+  transition: transform 0.2s;
+}
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-3">
+    <mat-form-field class="example-full-width">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Searchh" />
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field>
+      <mat-select
+        (selectionChange)="sortProduct($event.value)"
+        placeholder="Sort"
+      >
+        <mat-option value="priceLowToHigh">Price Low To High</mat-option>
+        <mat-option value="priceHighToLow">Price High To Low</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div class="row d-flex mx-auto justify-content-center">
+  <div class="col-2 my-5" *ngFor="let product of filteredProduct">
+    <mat-card class="product-card" (click)="addToCart(product)">
+      <img mat-card-image src="assets/img/{{ product.image_url }}" />
+      <mat-card-content>
+        <mat-card-title>{{ product.name }} </mat-card-title>
+        <mat-card-subtitle
+          >{{ product.price | currency : "IDR" }}
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
